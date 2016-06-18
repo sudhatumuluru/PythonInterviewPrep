@@ -1,0 +1,5 @@
+print("Enter your integer")
+integer = input()
+print("You have entered " + ": " + str(integer))
+print("You have entered " + ": " + `integer`)
+print("You have entered " + ": %s" % integer)
