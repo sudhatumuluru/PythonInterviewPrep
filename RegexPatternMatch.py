@@ -31,9 +31,12 @@ print(mo1.group())
 mo2 = heroRegex.search('Tina Fey and Batman.')
 print mo2.group()
 mo3 = heroRegex.findall('Tina Fey and Batman.')
-print mo3.group()
+if mo3 is not None:
+    print mo3
 
 # To match any of the strings 'Batman', 'Batmobile', 'Batcopter', and 'Batbat'
 betRegex = re.compile(r'Bat(man|mobile|copter|bat)')
+pMatch = betRegex.findall("Batman is a good movie but i liked Batbat character in it but not Batcopter")
+print pMatch
 pMatch = betRegex.search("Batman is a good movie but i liked Batbat character in it but not Batcopter")
 print pMatch.group()
