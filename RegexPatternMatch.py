@@ -40,3 +40,13 @@ pMatch = betRegex.findall("Batman is a good movie but i liked Batbat character i
 print pMatch
 pMatch = betRegex.search("Batman is a good movie but i liked Batbat character in it but not Batcopter")
 print pMatch.group()
+
+# Sometimes there is a pattern that you want to match only optionally. The ? character flags the
+# group that precedes it as an optional part of the pattern.
+# The '?' character flags the group that precedes it as an optional part of the pattern
+batRegex=re.compile(r'bat(wo)?man')  # The (wo)? part of the regular expression means that the pattern wo is an optional group.
+mo1 = batRegex.search('The Adventures of batman')
+print mo1.group()
+mo2 = batRegex.search('The Adventures of batwoman')
+print mo2.group()
+
