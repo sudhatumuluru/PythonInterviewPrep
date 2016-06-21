@@ -60,4 +60,14 @@ print mo1.group()
 mo2 = batRegex.search('The Adventures of Batwoman')
 print mo2.group()
 
+# Matching One or More with the Plus ( + )
+print '+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++'
+batRegex = re.compile(r'Bat(wo)+man')
+mo1 = batRegex.search('The Adventures of Batwoman')
+print mo1.group()
+mo3 = batRegex.search('The Adventures of Batman')
+if mo3 == None:
+    print True
+mo2 = batRegex.search('The Adventures of Batwowowowoman')
+print mo2.group()
 
