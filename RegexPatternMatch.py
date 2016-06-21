@@ -71,3 +71,11 @@ if mo3 == None:
 mo2 = batRegex.search('The Adventures of Batwowowowoman')
 print mo2.group()
 
+# Matching Specific Number of Repetitions with Curly Brackets
+print '{{{{{{{{{{{{{{{{{{{{{{{{{{}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}'
+haRegex = re.compile(r'(Ha){3}')
+mo1 = haRegex.search('HaHaHa')
+print mo1.group()
+mo2 = haRegex.search('Ha')
+if mo3 == None:
+    print True
