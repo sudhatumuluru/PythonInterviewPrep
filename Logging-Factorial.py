@@ -17,6 +17,7 @@ print(factorial(5))
 logging.debug('End of program')
 
 # Correction in the above code
+logging.disable(logging.CRITICAL) # to disable all the logging messages
 logging.debug('Start of program')
 
 def factorial(n):
