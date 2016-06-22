@@ -1,4 +1,8 @@
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
+
 import re
+
 regex=re.compile(r'\d{3}-\d{3}-\d{4}')
 print(regex.search('call me at 408-540-7056, or fax me at 854-565-6345').group()) # prints only first occurence of the pattern
 print(regex.findall('call me at 408-540-7056, or fax me at 854-565-6345')) # prints all occurences of the pattern
@@ -76,6 +80,28 @@ print '{{{{{{{{{{{{{{{{{{{{{{{{{{}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}'
 haRegex = re.compile(r'(Ha){3}')
 mo1 = haRegex.search('HaHaHa')
 print mo1.group()
+mo1 = haRegex.search('HaHaHaHaHa')
+print mo1.group()
 mo2 = haRegex.search('Ha')
 if mo3 == None:
     print True
+
+# Greedy and Nongreedy Matching:
+# Python’s regular expressions are greedy by default, which means that
+#   in ambiguous situations they will match the longest string possible.
+# The non-greedy version of the curly brackets, which matches the shortest string possible, has the
+#   closing curly bracket followed by a question mark.
+print '{{{{{{{{{{{{{{{{{{{{{{{{{{}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}'
+greedyHaRegex = re.compile(r'(Ha){3,5}')
+mo1 = greedyHaRegex.search('HaHaHaHaHa')
+print mo1.group()
+
+#The sub() method for Regex objects is passed two arguments.
+# The first argument is a string to replace any matches. The second is the string for the regular expression.
+namesRegex = re.compile(r'Agent \w+')
+print namesRegex.sub('CENSORED', 'Agent Alice gave the secret documents to Agent Bob.')
+
+# below regex not working
+httpRegex=re.compile(r'http(s)?:\/?\/?(wwww)?\.[a-zA-Z0-9+-]\.[a-zA-Z]')
+print httpRegex.findall('http://www.sudha.com').group()
+
